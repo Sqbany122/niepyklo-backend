@@ -28,4 +28,10 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::get('/auth/user', function(\Illuminate\Http\Request $request) {
         return $request->user();
     })->name('auth.user');
+
+    Route::post('/post/create', [\App\Http\Controllers\Api\v1\Post\PostController::class, 'store'])
+        ->name('post.create');
+
+    Route::get('/posts', [\App\Http\Controllers\Api\v1\Post\PostController::class, 'index'])
+        ->name('posts');
 });

@@ -18,7 +18,7 @@ trait ExceptionTrait
     {
         return response()->json([
             'status_code' => 500,
-            'message' => __('messages.something_went_wrong')
+            'message' => __('messages.exceptions.something_went_wrong')
         ], 500);
     }
 }
