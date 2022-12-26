@@ -9,5 +9,10 @@ return [
         'not_exists' => 'Kod resetowania hasła nie istnieje',
         'reset_successful' => 'Hasło zostało zmienione'
     ],
-    'something_went_wrong' => 'Coś poszło nie tak'
+    'exceptions' => [
+        'something_went_wrong' => 'Coś poszło nie tak'
+    ],
+    'posts' => [
+        'created_successfully' => 'Post został dodany poprawnie'
+    ]
 ];

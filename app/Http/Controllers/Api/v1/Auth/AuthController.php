@@ -55,7 +55,7 @@ class AuthController extends Controller implements AuthInterface
                 'access_token' => $token
             ]);
         } catch (\Throwable $th) {
-            return $this->serverErrorException($th->getMessage());
+            return $this->serverErrorException();
         }
     }
 }
