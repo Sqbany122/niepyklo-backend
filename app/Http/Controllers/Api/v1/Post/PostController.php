@@ -16,7 +16,7 @@ class PostController extends Controller
     public function index()
     {
         try {
-            $posts = Post::get();
+            $posts = Post::orderBy('created_at', 'DESC')->get();
 
             $posts->transform(function ($item) {
                 foreach ($item->getMedia('images') as $media) {
