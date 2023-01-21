@@ -24,6 +24,9 @@ Route::group(['prefix' => '/auth'], function () {
         ->name('auth.reset.password');
 });
 
+Route::get('/posts', [\App\Http\Controllers\Api\v1\Post\PostController::class, 'index'])
+    ->name('posts');
+
 Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::get('/auth/user', function(\Illuminate\Http\Request $request) {
         return $request->user();
@@ -31,7 +34,4 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
 
     Route::post('/post/create', [\App\Http\Controllers\Api\v1\Post\PostController::class, 'store'])
         ->name('post.create');
-
-    Route::get('/posts', [\App\Http\Controllers\Api\v1\Post\PostController::class, 'index'])
-        ->name('posts');
 });

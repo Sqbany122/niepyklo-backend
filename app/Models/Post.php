@@ -23,6 +23,11 @@ class Post extends Model implements HasMedia
         'media'
     ];
 
+    protected $with = [
+        'user',
+        'category'
+    ];
+
     const STATUS_ACTIVE = 'active';
     const STATUS_WAITING = 'waiting';
 
@@ -37,6 +42,15 @@ class Post extends Model implements HasMedia
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('images')->useDisk('images');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function category() {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
 }
